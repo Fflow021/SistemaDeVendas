@@ -5,7 +5,7 @@ SistemaDeVendasApplication.java possui instanciações das classes presentes no 
 cada um com seu ToString retornando as informações presentes na sua criação.
 
 # Diagrama de Classes
-[DomainModel]()
+![DomainModel](https://raw.githubusercontent.com/Fflow021/SistemaDeVendas/main/assets/Diagrama_Classes-1.png)
 # Análise de Mini-mundo
 A fim de gerenciar as vendas da loja virtual Biscoitos e Pipocas Wolff's os seguintes requisitos devem ser atendidos pela modelagem de dados em Java orientada a objetos:<br>
 ° Vendas são efetuadas pela Dona Wolf em um determinado momento (indicado por uma data de entrega com hora).<br>
