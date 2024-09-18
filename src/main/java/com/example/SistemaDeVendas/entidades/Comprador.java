@@ -2,6 +2,7 @@ package com.example.SistemaDeVendas.entidades;
 
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @NoArgsConstructor
@@ -11,7 +12,7 @@ public class Comprador {
     private int celular;
     private String nome;
     private String email;
-    private List<Pedido> pedidoList;
+    private List<Pedido> pedidoList = new ArrayList<>();
 
     public Comprador(int idComprador, int celular, String nome, String email) {
         this.idComprador = idComprador;
@@ -50,6 +51,10 @@ public class Comprador {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public List<Pedido> getPedidoList() {
+        return pedidoList;
     }
 
     @Override

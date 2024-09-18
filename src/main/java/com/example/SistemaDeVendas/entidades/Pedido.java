@@ -7,22 +7,26 @@ import javax.swing.text.DateFormatter;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.HashSet;
 import java.util.Set;
 
 @NoArgsConstructor
 public class Pedido {
 
+    // ATRIBUTOS DE PEDIDO
     private int idPedido;
     private String localDeEntrega;
     private String horaPedido;
+    //ATRIBUTOS RELACIONAMENTO
     private Comprador comprador;
-    private Set<Produto> produtosSet;
+    private Set<ProdutoPedido> produtoPedidoSet = new HashSet<>();
     private Pagamento pagamento;
 
-    public Pedido(int idPedido, String localDeEntrega) {
+    public Pedido(int idPedido, String localDeEntrega, Comprador comprador) {
         this.idPedido = idPedido;
         this.localDeEntrega = localDeEntrega;
         this.horaPedido = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss"));
+        this.comprador = comprador;
 
     }
 
@@ -50,10 +54,33 @@ public class Pedido {
         this.horaPedido = horaPedido;
     }
 
-    public float totalPedido(){
+    //GET E SET RELACIONAMENTO
+    public Comprador getComprador() {
+        return comprador;
+    }
+
+    public void setComprador(Comprador comprador) {
+        this.comprador = comprador;
+    }
+
+    public Pagamento getPagamento() {
+        return pagamento;
+    }
+
+    public void setPagamento(Pagamento pagamento) {
+        this.pagamento = pagamento;
+    }
+
+    public Set<ProdutoPedido> getProdutoPedidoSet() {
+        return produtoPedidoSet;
+    }
+
+    //por alguma razão ele não ta retornando o total
+    public float getTotalPedido(){
         float total = 0F;
-        for (Produto produtoDaIteração : produtosSet){
-            total = total + produtoDaIteração.getPreco();
+        for (ProdutoPedido item : produtoPedidoSet){
+            total += item.getSubtotal();
+            System.out.println(total);
         }
         return total;
     }
@@ -65,7 +92,7 @@ public class Pedido {
                 ", localDeEntrega='" + localDeEntrega + '\'' +
                 ", horaPedido=" + horaPedido +
                 ", comprador=" + comprador +
-                ", produtosSet=" + produtosSet +
+                ", produtosSet=" + produtoPedidoSet +
                 ", pagamento=" + pagamento +
                 '}';
     }

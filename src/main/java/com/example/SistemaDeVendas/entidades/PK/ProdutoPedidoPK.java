@@ -10,11 +10,6 @@ public class ProdutoPedidoPK {
     private Produto produto;
     private Pedido pedido;
 
-    public ProdutoPedidoPK(Produto produto, Pedido pedido) {
-        this.produto = produto;
-        this.pedido = pedido;
-    }
-
     public Produto getProduto() {
         return produto;
     }
