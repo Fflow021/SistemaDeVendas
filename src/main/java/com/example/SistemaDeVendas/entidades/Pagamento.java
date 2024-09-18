@@ -13,12 +13,13 @@ public class Pagamento {
     private String horaPagamento;
     private Pedido pedido;
 
-    public Pagamento(int idPagamento, String tipo) {
+    public Pagamento(int idPagamento, String tipo, Pedido pedido) {
         this.idPagamento = idPagamento;
         this.tipo = tipo;
         this.horaPagamento = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss"));
-    }
+        this.pedido = pedido;
 
+    }
     public int getIdPagamento() {
         return idPagamento;
     }
@@ -50,8 +51,6 @@ public class Pagamento {
         return "Pagamento{" +
                 "idPagamento=" + idPagamento +
                 ", tipo='" + tipo + '\'' +
-                ", horaPagamento='" + horaPagamento + '\'' +
-                ", pedido=" + pedido +
-                '}';
+                ", horaPagamento='" + horaPagamento + "'}";
     }
 }

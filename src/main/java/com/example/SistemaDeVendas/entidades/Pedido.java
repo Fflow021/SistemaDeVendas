@@ -75,12 +75,12 @@ public class Pedido {
         return produtoPedidoSet;
     }
 
+
     //por alguma razão ele não ta retornando o total
-    public float getTotalPedido(){
+    public float getTotal(){
         float total = 0F;
         for (ProdutoPedido item : produtoPedidoSet){
             total += item.getSubtotal();
-            System.out.println(total);
         }
         return total;
     }
