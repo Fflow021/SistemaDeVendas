@@ -4,11 +4,11 @@ import com.example.SistemaDeVendas.entidades.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
+//@SpringBootApplication
 public class SistemaDeVendasApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SistemaDeVendasApplication.class, args);
+		//SpringApplication.run(SistemaDeVendasApplication.class, args);
 
 		Produto produto = new Produto(1, 20, "Biscoito Decorado", "Baunilha", "Estrela", "Pequeno", 20.0F);
 		Comprador cliente = new Comprador(1,988884444,"Rodrigo Samambaia", "rodrigosamba@gmail.com");
