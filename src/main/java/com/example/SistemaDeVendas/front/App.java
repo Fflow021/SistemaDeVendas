@@ -23,6 +23,11 @@ public class App {
     private JButton adicionarAoCarrinhoCButton;
     private JLabel FotoProdutoA;
     private JLabel FotoProdutoB;
+    private JLabel FotoProdutoC;
+    private JButton carrinhoDeComprasButton;
+    private JLabel LabelDoMerchant;
+    private JLabel wolffsoficial;
+    private JLabel precinho;
 
     public JTextPane getProdutoA() {
         return ProdutoA;
@@ -37,10 +42,32 @@ public class App {
 
         FotoProdutoA = new JLabel();
         ImageIcon icon = new ImageIcon("C:\\Users\\phill\\Documents\\hell\\SistemaDeVendas\\assets\\BiscoitoDecorado.png");
+        FotoProdutoA.setIcon(trataImagem(icon));
+
+        FotoProdutoB = new JLabel();
+        ImageIcon iconB = new ImageIcon("C:\\Users\\phill\\Documents\\hell\\SistemaDeVendas\\assets\\PipocaGourmet.png");
+        FotoProdutoB.setIcon(trataImagem(iconB));
+
+        FotoProdutoC = new JLabel();
+        ImageIcon iconC = new ImageIcon("C:\\Users\\phill\\Documents\\hell\\SistemaDeVendas\\assets\\Brownie.png");
+        FotoProdutoC.setIcon(trataImagem(iconC));
+
+        //partezinha do merchant que eu sou esperto né ta ligado
+        LabelDoMerchant = new JLabel();
+        ImageIcon IconMerchant = new ImageIcon("C:\\Users\\phill\\Documents\\hell\\SistemaDeVendas\\assets\\ETIQUETA 1 WOLFF'S-1.png");
+        LabelDoMerchant = new JLabel(trataImagem(IconMerchant));
+        Font myFont = new Font("Arial", Font.BOLD, 20);
+        wolffsoficial = new JLabel();
+        precinho = new JLabel();
+        wolffsoficial.setFont(myFont);
+        precinho.setFont(myFont);
+
+
+    }
+
+    private ImageIcon trataImagem(ImageIcon icon) {
         Image imgIconToImgOBJ = icon.getImage();
         Image imagemTratada = imgIconToImgOBJ.getScaledInstance(150,150, Image.SCALE_SMOOTH);
-        FotoProdutoA.setIcon(new ImageIcon(imagemTratada));
-
-
+        return new ImageIcon(imagemTratada);
     }
 }

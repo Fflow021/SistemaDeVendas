@@ -13,7 +13,7 @@ public class SistemaDeVendasApplication {
 		JFrame frame = new JFrame("App");
 		frame.setContentPane(new App().getMainScreen());
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setSize(1000, 400);
+		frame.setSize(1500, 400);
 		frame.setVisible(true);
 
 		Produto produto = new Produto(1, 20, "Biscoito Decorado", "Baunilha", "Estrela", "Pequeno", 20.0F);
