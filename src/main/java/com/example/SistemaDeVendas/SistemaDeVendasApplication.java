@@ -1,14 +1,23 @@
 package com.example.SistemaDeVendas;
 
+
+import com.example.SistemaDeVendas.Front.App;
 import com.example.SistemaDeVendas.entidades.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import javax.swing.*;
 
 //@SpringBootApplication
 public class SistemaDeVendasApplication {
 
 	public static void main(String[] args) {
-		//SpringApplication.run(SistemaDeVendasApplication.class, args);
+		// Configuracoes do Swing
+		JFrame frame = new JFrame("App");
+		frame.setContentPane(new App().getMainScreen());
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setSize(500, 300);
+		frame.setVisible(true);
 
 		Produto produto = new Produto(1, 20, "Biscoito Decorado", "Baunilha", "Estrela", "Pequeno", 20.0F);
 		Comprador cliente = new Comprador(1,988884444,"Rodrigo Samambaia", "rodrigosamba@gmail.com");
