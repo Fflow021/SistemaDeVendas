@@ -2,6 +2,8 @@ package com.example.SistemaDeVendas.front;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class App {
     private JTextPane ProdutoA;
@@ -28,33 +30,45 @@ public class App {
     private JLabel LabelDoMerchant;
     private JLabel wolffsoficial;
     private JLabel precinho;
+    private JLabel produtoANome;
 
-    public JTextPane getProdutoA() {
-        return ProdutoA;
+    public App() {
+        carrinhoDeComprasButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
     }
 
     public JPanel getMainScreen() {
         return MainScreen;
     }
 
+    public void setProdutoALabel(String text) {
+        this.produtoANome.setText(text);
+    }
+
     private void createUIComponents() {
         // TODO: place custom component creation code here
+        produtoANome = new JLabel();
 
+        //instancio as label e as fotos(icons) pra poder por elas nos programas
         FotoProdutoA = new JLabel();
-        ImageIcon icon = new ImageIcon("C:\\Users\\phill\\Documents\\hell\\SistemaDeVendas\\assets\\BiscoitoDecorado.png");
+        ImageIcon icon = new ImageIcon("assets/BiscoitoDecorado.png");
         FotoProdutoA.setIcon(trataImagem(icon));
 
         FotoProdutoB = new JLabel();
-        ImageIcon iconB = new ImageIcon("C:\\Users\\phill\\Documents\\hell\\SistemaDeVendas\\assets\\PipocaGourmet.png");
+        ImageIcon iconB = new ImageIcon("assets/PipocaGourmet.png");
         FotoProdutoB.setIcon(trataImagem(iconB));
 
         FotoProdutoC = new JLabel();
-        ImageIcon iconC = new ImageIcon("C:\\Users\\phill\\Documents\\hell\\SistemaDeVendas\\assets\\Brownie.png");
+        ImageIcon iconC = new ImageIcon("assets/Brownie.png");
         FotoProdutoC.setIcon(trataImagem(iconC));
 
         //partezinha do merchant que eu sou esperto né ta ligado
         LabelDoMerchant = new JLabel();
-        ImageIcon IconMerchant = new ImageIcon("C:\\Users\\phill\\Documents\\hell\\SistemaDeVendas\\assets\\ETIQUETA 1 WOLFF'S-1.png");
+        ImageIcon IconMerchant = new ImageIcon("assets/ETIQUETA 1 WOLFF'S-1.png");
         LabelDoMerchant = new JLabel(trataImagem(IconMerchant));
         Font myFont = new Font("Arial", Font.BOLD, 20);
         wolffsoficial = new JLabel();
@@ -65,7 +79,7 @@ public class App {
 
     }
 
-    private ImageIcon trataImagem(ImageIcon icon) {
+    private ImageIcon trataImagem(ImageIcon icon) { // Essa classe re escala a imagem, só usar um setSize do Swing cortava a imagem
         Image imgIconToImgOBJ = icon.getImage();
         Image imagemTratada = imgIconToImgOBJ.getScaledInstance(150,150, Image.SCALE_SMOOTH);
         return new ImageIcon(imagemTratada);

@@ -15,8 +15,11 @@ public class SistemaDeVendasApplication {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(1500, 400);
 		frame.setVisible(true);
+		App app = new App();
+
 
 		Produto produto = new Produto(1, 20, "Biscoito Decorado", "Baunilha", "Estrela", "Pequeno", 20.0F);
+		app.setProdutoALabel(produto.getName()); //TODO: ESSA PORRA NÃO FUNCIONA, NÃO APARECE O A STRING DO GETNAME NA UI
 		Comprador cliente = new Comprador(1,988884444,"Rodrigo Samambaia", "rodrigosamba@gmail.com");
 		Pedido pedido = new Pedido(1, "Ninho da Gávea", cliente);
 		Pagamento pagamento = new Pagamento(1, "Cartão", pedido);
@@ -55,7 +58,6 @@ public class SistemaDeVendasApplication {
 
 		System.out.println("\n");
 		System.out.println("total dos pedido com os produtos  'produto','produto1','produto2','produto3': " + pedido.getTotal());
-
 
 	}
 }
