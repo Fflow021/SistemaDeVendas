@@ -1,6 +1,7 @@
-package com.example.SistemaDeVendas.front;
+package com.example.SistemaDeVendas.front.CRUD.CREATE;
 
 import com.example.SistemaDeVendas.entidades.Produto;
+import com.example.SistemaDeVendas.entidades.ProdutoPedido;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,9 +13,9 @@ public class App {
     private JButton adicionarAoCarrinhoButton;
     private JButton adicionarAoCarrinhoBButton;
     private JButton adicionarAoCarrinhoCButton;
-    private JLabel FotoProdutoA;
-    private JLabel FotoProdutoB;
-    private JLabel FotoProdutoC;
+    private JLabel fotoProdutoA;
+    private JLabel fotoProdutoB;
+    private JLabel fotoProdutoC;
     private JButton carrinhoDeComprasButton;
     private JLabel labelDoMerchant;
     private JLabel wolffsoficial;
@@ -28,15 +29,27 @@ public class App {
     private JLabel produtoCNome;
     private JLabel precoCGet;
     private JLabel saborCGet;
-    private JTextField textField1;
+    private JTextField quantidadeAField;
     private JTextField textField2;
     private JTextField textField3;
 
     public App() {
+        Produto produtoBiscoito = new Produto(1, 20, "Biscoito Decorado", "Baunilha", 20.0F);
         carrinhoDeComprasButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                JFrame frame = new JFrame("carrinhoTela");
+                Carrinho carrinho = new Carrinho();
+                frame.setContentPane(carrinho.getCarrinhoTela());
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.setSize(1500, 400);
+                frame.setVisible(true);
+            }
+        });
+        adicionarAoCarrinhoButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //ProdutoPedido produtoPedido = new ProdutoPedido(produtoBiscoito,Integer.parseInt(quantidadeAField.getText()))
             }
         });
     }
@@ -49,10 +62,11 @@ public class App {
         //modulozinho do primeiro produto
         produtoANome = new JLabel();
 
-        FotoProdutoA = new JLabel();
+        fotoProdutoA = new JLabel();
         ImageIcon icon = new ImageIcon("assets/BiscoitoDecorado.png");
-        FotoProdutoA.setIcon(trataImagem(icon));
+        fotoProdutoA.setIcon(trataImagem(icon));
 
+        quantidadeAField = new JTextField();
         precoGet = new JLabel();
         saborGet = new JLabel();
 
@@ -60,9 +74,9 @@ public class App {
         //modulozinho contendo objetos do segundo produto
         produtoBNome = new JLabel();
 
-        FotoProdutoB = new JLabel();
+        fotoProdutoB = new JLabel();
         ImageIcon iconB = new ImageIcon("assets/PipocaGourmet.png");
-        FotoProdutoB.setIcon(trataImagem(iconB));
+        fotoProdutoB.setIcon(trataImagem(iconB));
 
         precoBGet = new JLabel();
         saborBGet = new JLabel();
@@ -71,9 +85,9 @@ public class App {
         //modulozinho contendo objetos do terceiro produto
         produtoCNome = new JLabel();
 
-        FotoProdutoC = new JLabel();
+        fotoProdutoC = new JLabel();
         ImageIcon iconC = new ImageIcon("assets/Brownie.png");
-        FotoProdutoC.setIcon(trataImagem(iconC));
+        fotoProdutoC.setIcon(trataImagem(iconC));
 
         precoCGet = new JLabel();
         saborCGet = new JLabel();

@@ -13,18 +13,14 @@ public class Produto {
     private int quantidade;
     private String name;
     private String sabor;
-    private String formato;
-    private String tamanho;
     private float preco;
     private Set<ProdutoPedido> pedidoList = new HashSet<>();
 
-    public Produto(int idProduto, int quantidade, String name, String sabor, String formato, String tamanho, float preco) {
+    public Produto(int idProduto, int quantidade, String name, String sabor, float preco) {
         this.idProduto = idProduto;
         this.quantidade = quantidade;
         this.name = name;
         this.sabor = sabor;
-        this.formato = formato;
-        this.tamanho = tamanho;
         this.preco = preco;
     }
 
@@ -60,22 +56,6 @@ public class Produto {
         this.sabor = sabor;
     }
 
-    public String getFormato() {
-        return formato;
-    }
-
-    public void setFormato(String formato) {
-        this.formato = formato;
-    }
-
-    public String getTamanho() {
-        return tamanho;
-    }
-
-    public void setTamanho(String tamanho) {
-        this.tamanho = tamanho;
-    }
-
     public float getPreco() {
         return preco;
     }
@@ -100,8 +80,6 @@ public class Produto {
                 ", quantidade=" + quantidade +
                 ", name='" + name + '\'' +
                 ", sabor='" + sabor + '\'' +
-                ", formato='" + formato + '\'' +
-                ", tamanho='" + tamanho + '\'' +
                 ", preco=" + preco +
                 ", pedidoList=" + pedidoList +
                 '}';

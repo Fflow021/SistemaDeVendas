@@ -1,14 +1,14 @@
 package com.example.SistemaDeVendas.front.CRUD;
 
 
-import com.example.SistemaDeVendas.front.App;
+import com.example.SistemaDeVendas.front.CRUD.CREATE.App;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import static com.example.SistemaDeVendas.front.App.trataImagem;
+import static com.example.SistemaDeVendas.front.CRUD.CREATE.App.trataImagem;
 
 public class MainScreen {
     private JPanel mainScreen;

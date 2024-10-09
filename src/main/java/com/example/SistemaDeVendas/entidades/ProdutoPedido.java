@@ -10,11 +10,16 @@ public class ProdutoPedido {
     private int quantidade;
     private float preco;
 
-    public ProdutoPedido(Pedido pedido, Produto produto, int quantidade, float preco) {
+    public ProdutoPedido(Pedido pedido, Produto produto, int quantidade) {
         id.setPedido(pedido);
         id.setProduto(produto);
         this.quantidade=quantidade;
-        this.preco=preco;
+        this.preco=produto.getPreco();
+    }
+    public ProdutoPedido(Produto produto, int quantidade) {
+        id.setProduto(produto);
+        this.quantidade=quantidade;
+        this.preco=produto.getPreco();
     }
     public int getQuantidade() {
         return quantidade;
@@ -28,15 +33,8 @@ public class ProdutoPedido {
         return preco;
     }
 
-    public void setPreco(float preco) {
-        this.preco = preco;
-    }
     public Pedido getPedido() {
         return id.getPedido();
-    }
-
-    public void setOrder(Pedido pedido) {
-        id.setPedido(pedido);
     }
 
     public Produto getProduto() {

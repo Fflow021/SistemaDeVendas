@@ -1,11 +1,8 @@
 package com.example.SistemaDeVendas.entidades;
 
-import lombok.NoArgsConstructor;
-
 import java.util.ArrayList;
 import java.util.List;
 
-@NoArgsConstructor
 public class Comprador {
 
     private int idComprador;
@@ -19,6 +16,9 @@ public class Comprador {
         this.celular = celular;
         this.nome = nome;
         this.email = email;
+    }
+
+    public Comprador() {
     }
 
     public int getIdComprador() {
