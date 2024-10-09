@@ -1,5 +1,6 @@
 package com.example.SistemaDeVendas.entidades;
 
+import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
 import java.util.HashSet;

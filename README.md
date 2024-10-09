@@ -6,14 +6,22 @@ cada um com seu ToString retornando as informações presentes na sua criação.
 
 # Diagrama de Classes
 ![DomainModel](https://raw.githubusercontent.com/Fflow021/SistemaDeVendas/main/assets/Diagrama_Classes-1.png)
+
 # Análise de Mini-mundo
 A fim de gerenciar as vendas da loja virtual Biscoitos e Pipocas Wolff's os seguintes requisitos devem ser atendidos pela modelagem de dados em Java orientada a objetos:<br>
 ° Vendas são efetuadas pela Dona Wolf em um determinado momento (indicado por uma data de entrega com hora).<br>
 ° Clientes são cadastrados com seu Nome, Endereço e Telefone podendo possuir mais de um Telefone.<br>
 ° Doces são cadastrados por Tipo, Características e Preço.<br>
 
+# Interface
+TODO
+
+# Banco de Dados
+TODO
+
+
 # Observações
-O programa foi montado sobre as bases do Spring Boot 3 CASO o programa expanda e veja-se a necessidade de conectar à banco de dados ou fazer algum tipo de chamado API.
+O programa foi montado sobre as bases do Spring Boot 3 através do Spring Initializr, como não foi o caso de montar o projeto voltado para Web, foi trocado do Spring Boot 3 para GUI Swing.
 
 # Integrantes
 Augusto Poubell Ribeiro Pinheiro de Souza - 202103132881<br>

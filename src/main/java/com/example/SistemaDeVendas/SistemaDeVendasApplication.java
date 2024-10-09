@@ -3,6 +3,7 @@ package com.example.SistemaDeVendas;
 
 import com.example.SistemaDeVendas.entidades.*;
 import com.example.SistemaDeVendas.front.App;
+import com.example.SistemaDeVendas.front.CRUD.MainScreen;
 
 import javax.swing.*;
 
@@ -10,24 +11,28 @@ public class SistemaDeVendasApplication {
 
 	public static void main(String[] args) {
 		// Configuracoes do Swing
-		JFrame frame = new JFrame("App");
-		frame.setContentPane(new App().getMainScreen());
+		JFrame frame = new JFrame("MainScreen");
+		MainScreen mainScreen = new MainScreen();
+		frame.setContentPane(mainScreen.getMainScreen());
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setSize(1500, 400);
+		frame.setSize(1500, 600);
 		frame.setVisible(true);
-		App app = new App();
 
-
-		Produto produto = new Produto(1, 20, "Biscoito Decorado", "Baunilha", "Estrela", "Pequeno", 20.0F);
-		app.setProdutoALabel(produto.getName()); //TODO: ESSA PORRA NÃO FUNCIONA, NÃO APARECE O A STRING DO GETNAME NA UI
+		//instanciação de um produto teste
+//		Produto produtoBiscoito = new Produto(1, 20, "Biscoito Decorado", "Baunilha", "Diversos", "Pequeno", 20.0F);
+//		Produto produtoPipoca = new Produto(1, 20, "Pipoca Gourmet", "Pão de Alho", "Estrela", "Pequeno", 20.0F);
+//		Produto produtoBrownie = new Produto(1, 20, "Lascas de Brownies", "Chocolate", "Estrela", "Pequeno", 20.0F);
+//		app.montaProdutoNaTela(produtoBiscoito,app);
+//		app.montaProdutoNaTelaB(produtoPipoca,app);
+//		app.montaProdutoNaTelaC(produtoBrownie,app);
 		Comprador cliente = new Comprador(1,988884444,"Rodrigo Samambaia", "rodrigosamba@gmail.com");
 		Pedido pedido = new Pedido(1, "Ninho da Gávea", cliente);
 		Pagamento pagamento = new Pagamento(1, "Cartão", pedido);
 		//atribui um tipo de pagamento para pedido
 		pedido.setPagamento(pagamento);
-		ProdutoPedido produtoPedido = new ProdutoPedido(pedido, produto, 40, 20.0F);
+		//ProdutoPedido produtoPedido = new ProdutoPedido(pedido, produtoBiscoito, 40, 20.0F);
 		//adiciona um produtoPedido dentro do set de ProdutoPedido
-		pedido.getProdutoPedidoSet().add(produtoPedido);
+		//pedido.getProdutoPedidoSet().add(produtoPedido);
 
 		System.out.println("\n\n");
 
@@ -35,14 +40,14 @@ public class SistemaDeVendasApplication {
 		System.out.println("\n");
 		System.out.println(pedido);
 		System.out.println("\n");
-		System.out.println(produto);
+		//System.out.println(produtoBiscoito);
 		System.out.println("\n");
-		System.out.println(produtoPedido);
+		//System.out.println(produtoPedido);
 		System.out.println("\n");
 		System.out.println(pagamento);
 		System.out.println("\n");
 		System.out.println("total: " + pedido.getTotal());
-		System.out.println("subtotal: " + produtoPedido.getSubtotal());
+		//System.out.println("subtotal: " + produtoPedido.getSubtotal());
 
 		System.out.println("\n");
 
@@ -58,6 +63,6 @@ public class SistemaDeVendasApplication {
 
 		System.out.println("\n");
 		System.out.println("total dos pedido com os produtos  'produto','produto1','produto2','produto3': " + pedido.getTotal());
-
 	}
+
 }
