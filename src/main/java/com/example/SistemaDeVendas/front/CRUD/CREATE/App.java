@@ -7,6 +7,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.HashSet;
+import java.util.Set;
 
 public class App {
     private JPanel MainScreen;
@@ -34,6 +36,8 @@ public class App {
     private JTextField textField3;
 
     public App() {
+
+        //produto mocado
         Produto produtoBiscoito = new Produto(1, 20, "Biscoito Decorado", "Baunilha", 20.0F);
         carrinhoDeComprasButton.addActionListener(new ActionListener() {
             @Override
@@ -49,7 +53,7 @@ public class App {
         adicionarAoCarrinhoButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //ProdutoPedido produtoPedido = new ProdutoPedido(produtoBiscoito,Integer.parseInt(quantidadeAField.getText()))
+                ProdutoPedido produtoPedido = new ProdutoPedido(produtoBiscoito,Integer.parseInt(quantidadeAField.getText()));
             }
         });
     }

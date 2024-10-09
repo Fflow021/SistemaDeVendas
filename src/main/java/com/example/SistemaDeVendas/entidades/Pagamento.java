@@ -18,8 +18,13 @@ public class Pagamento {
         this.tipo = tipo;
         this.horaPagamento = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss"));
         this.pedido = pedido;
-
     }
+
+    public Pagamento(String tipo, Pedido pedido) {
+        this.tipo = tipo;
+        this.pedido = pedido;
+    }
+
     public int getIdPagamento() {
         return idPagamento;
     }

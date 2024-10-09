@@ -1,6 +1,8 @@
 package com.example.SistemaDeVendas.front.CRUD.CREATE;
 
 import com.example.SistemaDeVendas.entidades.Comprador;
+import com.example.SistemaDeVendas.entidades.Pagamento;
+import com.example.SistemaDeVendas.entidades.Pedido;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -32,6 +34,15 @@ public class Carrinho {
                 System.out.println(comprador);
             }
         });
+        pagamentoEscolha.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Pedido pedido = new Pedido();
+                if(e.getSource()==pagamentoEscolha) {
+                    new Pagamento(String.valueOf(pagamentoEscolha.getSelectedItem()),pedido);
+                }
+            }
+        });
     }
 
     private void createUIComponents() {
@@ -40,6 +51,10 @@ public class Carrinho {
         celularField = new JTextField();
         emailField = new JTextField();
         finalizarPedidoButton = new JButton();
+
+        String[] pagamentosTipos = {"Boleto","Cartão de Crédito", "PIX"};
+        pagamentoEscolha = new JComboBox<>(pagamentosTipos);
+
     }
 
 }
