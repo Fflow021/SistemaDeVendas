@@ -1,20 +1,27 @@
 package com.example.SistemaDeVendas.entidades;
 
 
+
 import lombok.NoArgsConstructor;
 
-import javax.swing.text.DateFormatter;
-import java.time.LocalDate;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.HashSet;
 import java.util.Set;
 
 @NoArgsConstructor
-public class Pedido {
+@Entity
+public class Pedido implements Serializable {
 
     // ATRIBUTOS DE PEDIDO
-    private int idPedido;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer idPedido;
     private String localDeEntrega;
     private String horaPedido;
     //ATRIBUTOS RELACIONAMENTO
@@ -22,7 +29,7 @@ public class Pedido {
     private Set<ProdutoPedido> produtoPedidoSet = new HashSet<>();
     private Pagamento pagamento;
 
-    public Pedido(int idPedido, String localDeEntrega, Comprador comprador) {
+    public Pedido(Integer idPedido, String localDeEntrega, Comprador comprador) {
         this.idPedido = idPedido;
         this.localDeEntrega = localDeEntrega;
         this.horaPedido = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss"));
@@ -34,7 +41,7 @@ public class Pedido {
         return idPedido;
     }
 
-    public void setIdPedido(int idPedido) {
+    public void setIdPedido(Integer idPedido) {
         this.idPedido = idPedido;
     }
 

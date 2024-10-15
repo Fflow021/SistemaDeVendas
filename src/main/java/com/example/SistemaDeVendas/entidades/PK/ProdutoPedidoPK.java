@@ -4,7 +4,10 @@ import com.example.SistemaDeVendas.entidades.Pedido;
 import com.example.SistemaDeVendas.entidades.Produto;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Embeddable;
+
 @NoArgsConstructor
+@Embeddable
 public class ProdutoPedidoPK {
 
     private Produto produto;

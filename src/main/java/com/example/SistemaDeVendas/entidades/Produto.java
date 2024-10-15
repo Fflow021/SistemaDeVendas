@@ -1,34 +1,40 @@
 package com.example.SistemaDeVendas.entidades;
 
-import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
 @NoArgsConstructor
-public class Produto {
-
-    private int idProduto;
+@Entity
+public class Produto implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer idProduto;
     private int quantidade;
-    private String name;
+    private String nome;
     private String sabor;
     private float preco;
     private Set<ProdutoPedido> pedidoList = new HashSet<>();
 
-    public Produto(int idProduto, int quantidade, String name, String sabor, float preco) {
+    public Produto(Integer idProduto, int quantidade, String nome, String sabor, float preco) {
         this.idProduto = idProduto;
         this.quantidade = quantidade;
-        this.name = name;
+        this.nome = nome;
         this.sabor = sabor;
         this.preco = preco;
     }
 
-    public int getIdProduto() {
+    public Integer getIdProduto() {
         return idProduto;
     }
 
-    public void setIdProduto(int idProduto) {
+    public void setIdProduto(Integer idProduto) {
         this.idProduto = idProduto;
     }
 
@@ -40,12 +46,12 @@ public class Produto {
         this.quantidade = quantidade;
     }
 
-    public String getName() {
-        return name;
+    public String getNome() {
+        return nome;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public String getSabor() {
@@ -78,7 +84,7 @@ public class Produto {
         return "Produto{" +
                 "idProduto=" + idProduto +
                 ", quantidade=" + quantidade +
-                ", name='" + name + '\'' +
+                ", nome='" + nome + '\'' +
                 ", sabor='" + sabor + '\'' +
                 ", preco=" + preco +
                 ", pedidoList=" + pedidoList +

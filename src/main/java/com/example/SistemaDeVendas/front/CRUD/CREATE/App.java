@@ -37,8 +37,8 @@ public class App {
 
     public App() {
 
-        //produto mocado
-        Produto produtoBiscoito = new Produto(1, 20, "Biscoito Decorado", "Baunilha", 20.0F);
+//        //produto mocado
+//        Produto produtoBiscoito = new Produto(1, 20, "Biscoito Decorado", "Baunilha", 20.0F);
         carrinhoDeComprasButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -53,7 +53,7 @@ public class App {
         adicionarAoCarrinhoButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ProdutoPedido produtoPedido = new ProdutoPedido(produtoBiscoito,Integer.parseInt(quantidadeAField.getText()));
+//                ProdutoPedido produtoPedido = new ProdutoPedido(produtoBiscoito,Integer.parseInt(quantidadeAField.getText()));
             }
         });
     }
@@ -115,17 +115,17 @@ public class App {
     }
 
     public void montaProdutoNaTela(Produto produto, App app) {
-        app.produtoANome.setText(produto.getName());
+        app.produtoANome.setText(produto.getNome());
         app.precoGet.setText(String.valueOf(produto.getPreco()));
         app.saborGet.setText(produto.getSabor());
     }
     public void montaProdutoNaTelaB(Produto produto, App app) {
-        app.produtoBNome.setText(produto.getName());
+        app.produtoBNome.setText(produto.getNome());
         app.precoBGet.setText(String.valueOf(produto.getPreco()));
         app.saborBGet.setText(produto.getSabor());
     }
     public void montaProdutoNaTelaC(Produto produto, App app) {
-        app.produtoCNome.setText(produto.getName());
+        app.produtoCNome.setText(produto.getNome());
         app.precoCGet.setText(String.valueOf(produto.getPreco()));
         app.saborCGet.setText(produto.getSabor());
     }

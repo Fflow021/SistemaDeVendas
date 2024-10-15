@@ -1,10 +1,15 @@
 package com.example.SistemaDeVendas.entidades;
 
 import com.example.SistemaDeVendas.entidades.PK.ProdutoPedidoPK;
+
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Entity;
+import java.io.Serializable;
+
 @NoArgsConstructor
-public class ProdutoPedido {
+@Entity
+public class ProdutoPedido implements Serializable {
 
     private ProdutoPedidoPK id = new ProdutoPedidoPK();
     private int quantidade;

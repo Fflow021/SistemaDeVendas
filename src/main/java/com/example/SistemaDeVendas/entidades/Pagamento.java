@@ -1,19 +1,27 @@
 package com.example.SistemaDeVendas.entidades;
 
+
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 @NoArgsConstructor
-public class Pagamento {
-
-    private int idPagamento;
+@Entity
+public class Pagamento implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer idPagamento;
     private String tipo;
     private String horaPagamento;
     private Pedido pedido;
 
-    public Pagamento(int idPagamento, String tipo, Pedido pedido) {
+    public Pagamento(Integer idPagamento, String tipo, Pedido pedido) {
         this.idPagamento = idPagamento;
         this.tipo = tipo;
         this.horaPagamento = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss"));
@@ -29,7 +37,7 @@ public class Pagamento {
         return idPagamento;
     }
 
-    public void setIdPagamento(int idPagamento) {
+    public void setIdPagamento(Integer idPagamento) {
         this.idPagamento = idPagamento;
     }
 
