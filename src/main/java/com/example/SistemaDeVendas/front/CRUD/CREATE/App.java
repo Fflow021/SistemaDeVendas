@@ -45,7 +45,7 @@ public class App {
                 JFrame frame = new JFrame("carrinhoTela");
                 Carrinho carrinho = new Carrinho();
                 frame.setContentPane(carrinho.getCarrinhoTela());
-                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                 frame.setSize(1500, 400);
                 frame.setVisible(true);
             }
@@ -108,7 +108,7 @@ public class App {
         precinho.setFont(myFont);
     }
 
-    public static ImageIcon trataImagem(ImageIcon icon) { // Essa classe re escala a imagem, só usar um setSize do Swing cortava a imagem
+    public static ImageIcon trataImagem(ImageIcon icon) { // Essa classe re-escala a imagem, só usar um setSize do Swing cortava a imagem
         Image imgIconToImgOBJ = icon.getImage();
         Image imagemTratada = imgIconToImgOBJ.getScaledInstance(150,150, Image.SCALE_SMOOTH);
         return new ImageIcon(imagemTratada);

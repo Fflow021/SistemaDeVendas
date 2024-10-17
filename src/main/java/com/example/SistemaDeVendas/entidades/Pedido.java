@@ -4,10 +4,7 @@ package com.example.SistemaDeVendas.entidades;
 
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -25,8 +22,12 @@ public class Pedido implements Serializable {
     private String localDeEntrega;
     private String horaPedido;
     //ATRIBUTOS RELACIONAMENTO
+    @ManyToOne
+    @JoinColumn
     private Comprador comprador;
+    @OneToMany(mappedBy = "id.pedido")
     private Set<ProdutoPedido> produtoPedidoSet = new HashSet<>();
+    @OneToOne(cascade = CascadeType.ALL)
     private Pagamento pagamento;
 
     public Pedido(Integer idPedido, String localDeEntrega, Comprador comprador) {

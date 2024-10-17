@@ -3,10 +3,7 @@ package com.example.SistemaDeVendas.entidades;
 
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +17,8 @@ public class Comprador implements Serializable {
     private int celular;
     private String nome;
     private String email;
+
+    @OneToMany(mappedBy = "comprador")
     private List<Pedido> pedidoList = new ArrayList<>();
 
     public Comprador(Integer idComprador, int celular, String nome, String email) {

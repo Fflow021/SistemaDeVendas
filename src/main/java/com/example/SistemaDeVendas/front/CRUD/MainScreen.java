@@ -1,8 +1,12 @@
 package com.example.SistemaDeVendas.front.CRUD;
 
 
+import com.example.SistemaDeVendas.entidades.Produto;
 import com.example.SistemaDeVendas.front.CRUD.CREATE.App;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -20,19 +24,20 @@ public class MainScreen {
     private JLabel primeiroTexto;
     private JLabel instagramLabel;
     private JLabel segueLaLabel;
+    private App app;
 
     public JPanel getMainScreen() {
         return mainScreen;
     }
 
-    public MainScreen() {
+    public MainScreen(App app) {
+        this.app = app;
         fazerUmPedidoButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 JFrame frame = new JFrame("App");
-                App app = new App();
                 frame.setContentPane(app.getMainScreen());
-                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                 frame.setSize(1500, 400);
                 frame.setVisible(true);
             }
@@ -56,5 +61,17 @@ public class MainScreen {
         //seguelá
         segueLaLabel = new JLabel();
         segueLaLabel.setFont(new Font("Arial", Font.BOLD, 26));
+
+        // Configurações do Hibernate
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("pu-vendas");
+        EntityManager em = emf.createEntityManager();
+
+        //setups da screen de create
+        Produto produtoBiscoito = em.find(Produto.class, 1);
+        Produto produtoPipoca = em.find(Produto.class, 2);
+        Produto produtoBrownie = em.find(Produto.class, 3);
+        app.montaProdutoNaTela(produtoBiscoito,app);
+        app.montaProdutoNaTelaB(produtoPipoca,app);
+        app.montaProdutoNaTelaC(produtoBrownie,app);
     }
 }

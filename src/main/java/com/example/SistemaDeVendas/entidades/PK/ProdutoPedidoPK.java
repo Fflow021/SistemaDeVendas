@@ -5,12 +5,20 @@ import com.example.SistemaDeVendas.entidades.Produto;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Embeddable;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import java.io.Serializable;
 
 @NoArgsConstructor
 @Embeddable
-public class ProdutoPedidoPK {
+public class ProdutoPedidoPK implements Serializable {
 
+    @ManyToOne
+    @JoinColumn(name = "idProduto")
     private Produto produto;
+
+    @ManyToOne
+    @JoinColumn(name = "idPedido")
     private Pedido pedido;
 
     public Produto getProduto() {

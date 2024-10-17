@@ -2,10 +2,7 @@ package com.example.SistemaDeVendas.entidades;
 
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
@@ -20,6 +17,7 @@ public class Produto implements Serializable {
     private String nome;
     private String sabor;
     private float preco;
+    @OneToMany(mappedBy = "id.produto")
     private Set<ProdutoPedido> pedidoList = new HashSet<>();
 
     public Produto(Integer idProduto, int quantidade, String nome, String sabor, float preco) {
@@ -86,8 +84,6 @@ public class Produto implements Serializable {
                 ", quantidade=" + quantidade +
                 ", nome='" + nome + '\'' +
                 ", sabor='" + sabor + '\'' +
-                ", preco=" + preco +
-                ", pedidoList=" + pedidoList +
-                '}';
+                ", preco=" + preco;
     }
 }

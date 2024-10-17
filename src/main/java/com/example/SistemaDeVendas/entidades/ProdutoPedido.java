@@ -4,6 +4,7 @@ import com.example.SistemaDeVendas.entidades.PK.ProdutoPedidoPK;
 
 import lombok.NoArgsConstructor;
 
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import java.io.Serializable;
 
@@ -11,6 +12,7 @@ import java.io.Serializable;
 @Entity
 public class ProdutoPedido implements Serializable {
 
+    @EmbeddedId
     private ProdutoPedidoPK id = new ProdutoPedidoPK();
     private int quantidade;
     private float preco;
