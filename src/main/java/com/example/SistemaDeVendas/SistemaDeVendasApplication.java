@@ -1,5 +1,7 @@
 package com.example.SistemaDeVendas;
 
+import com.example.SistemaDeVendas.entidades.Produto;
+import com.example.SistemaDeVendas.entidades.ProdutoPedido;
 import com.example.SistemaDeVendas.front.CRUD.CREATE.App;
 import com.example.SistemaDeVendas.front.CRUD.MainScreen;
 
@@ -18,21 +20,15 @@ public class SistemaDeVendasApplication {
 		frame.setVisible(true);
 
 
+		// testezin de produtoPedido com pedido null
+//		Produto produtoBiscoito = new Produto(null, 20, "Biscoito Decorado", "Baunilha", 20.00F);
+//		ProdutoPedido produtoPedido = new ProdutoPedido(null, produtoBiscoito, 40);
 
-//		Comprador cliente = new Comprador(1,988884444,"Rodrigo Samambaia", "rodrigosamba@gmail.com");
-//		Pedido pedido = new Pedido(1, "Ninho da Gávea", cliente);
-//		Pagamento pagamento = new Pagamento(1, "Cartão", pedido);
-
-//		//atribui um tipo de pagamento para pedido
-//		pedido.setPagamento(pagamento);
-
-//		//ProdutoPedido produtoPedido = new ProdutoPedido(pedido, produtoBiscoito, 40, 20.0F);
-//		//adiciona um produtoPedido dentro do set de ProdutoPedido
-//		//pedido.getProdutoPedidoSet().add(produtoPedido);
+//		adiciona um produtoPedido dentro do set de ProdutoPedido
+//		pedido.getProdutoPedidoSet().add(produtoPedido);
 //
-//		System.out.println("\n");
-//		System.out.println("\n");
-//
+
+
 //		Produto produto1 = new Produto(2, 25, "Biscoito de Chocolate", "Chocolate", 25.0F);
 //		Produto produto2 = new Produto(3, 30, "Biscoito de Morango", "Morango", 30.0F);
 //		Produto produto3 = new Produto(4, 15, "Biscoito de Menta", "Menta", 15.0F);

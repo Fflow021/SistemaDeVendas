@@ -28,6 +28,14 @@ public class Produto implements Serializable {
         this.preco = preco;
     }
 
+    public Produto(Produto produto) {
+        this.idProduto = produto.getIdProduto();
+        this.quantidade = produto.getQuantidade();
+        this.nome = produto.getNome();
+        this.sabor = produto.sabor;
+        this.preco = produto.getPreco();
+    }
+
     public Integer getIdProduto() {
         return idProduto;
     }

@@ -23,11 +23,11 @@ public class ProdutoPedido implements Serializable {
         this.quantidade=quantidade;
         this.preco=produto.getPreco();
     }
-    public ProdutoPedido(Produto produto, int quantidade) {
-        id.setProduto(produto);
-        this.quantidade=quantidade;
-        this.preco=produto.getPreco();
-    }
+//    public ProdutoPedido(Produto produto, int quantidade) {
+//        id.setProduto(produto);
+//        this.quantidade=quantidade;
+//        this.preco=produto.getPreco();
+//    }
     public int getQuantidade() {
         return quantidade;
     }

@@ -1,6 +1,7 @@
 package com.example.SistemaDeVendas.front.CRUD.CREATE;
 
 import com.example.SistemaDeVendas.DAO.DAO;
+import com.example.SistemaDeVendas.DTO.ProdutoPedidoDTO;
 import com.example.SistemaDeVendas.entidades.Comprador;
 import com.example.SistemaDeVendas.entidades.Pagamento;
 import com.example.SistemaDeVendas.entidades.Pedido;

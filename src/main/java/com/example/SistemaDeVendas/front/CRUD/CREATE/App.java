@@ -1,5 +1,7 @@
 package com.example.SistemaDeVendas.front.CRUD.CREATE;
 
+import com.example.SistemaDeVendas.DAO.DAO;
+import com.example.SistemaDeVendas.DTO.ProdutoPedidoDTO;
 import com.example.SistemaDeVendas.entidades.Produto;
 import com.example.SistemaDeVendas.entidades.ProdutoPedido;
 
@@ -53,7 +55,11 @@ public class App {
         adicionarAoCarrinhoButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-//                ProdutoPedido produtoPedido = new ProdutoPedido(produtoBiscoito,Integer.parseInt(quantidadeAField.getText()));
+                DAO daoBiscoito = new DAO<>(Produto.class);
+                Produto produto = (Produto) daoBiscoito.selectNaDBbyID(1);
+                ProdutoPedido produtoPedido = new ProdutoPedido(null, produto, Integer.parseInt(quantidadeAField.getText()));
+                ProdutoPedidoDTO pdDTO = new ProdutoPedidoDTO(produtoPedido);
+
             }
         });
     }
