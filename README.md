@@ -95,8 +95,11 @@ A fim de gerenciar as vendas da loja virtual Biscoitos e Pipocas Wolff's os segu
 ° Doces são cadastrados por Tipo, Características e Preço.<br>
 
 # Interface
+Tela inicial.
 ![MainScreen](https://github.com/Fflow021/SistemaDeVendas/blob/b76fd6064e57353fd152047b440e746d07808949/assets/assetsFotosDaTela/MainScreen.png)
+Tela de compras.
 ![AppScreen](https://github.com/Fflow021/SistemaDeVendas/blob/b76fd6064e57353fd152047b440e746d07808949/assets/assetsFotosDaTela/AppScreen.png)
+Tela para finalizar o pedido.
 ![TelaDeCarrinho](https://github.com/Fflow021/SistemaDeVendas/blob/b76fd6064e57353fd152047b440e746d07808949/assets/assetsFotosDaTela/TelaDoCarrinho.png)
 
 # Troubleshooting
