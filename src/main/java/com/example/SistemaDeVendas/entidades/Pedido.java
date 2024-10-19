@@ -25,7 +25,7 @@ public class Pedido implements Serializable {
     @ManyToOne
     @JoinColumn
     private Comprador comprador;
-    @OneToMany(mappedBy = "id.pedido")
+    @OneToMany(mappedBy = "id.pedido", fetch = FetchType.EAGER)
     private Set<ProdutoPedido> produtoPedidoSet = new HashSet<>();
     @OneToOne(cascade = CascadeType.ALL)
     private Pagamento pagamento;
@@ -117,7 +117,6 @@ public class Pedido implements Serializable {
                 ", localDeEntrega='" + localDeEntrega + '\'' +
                 ", horaPedido=" + horaPedido +
                 ", comprador=" + comprador +
-                ", produtosSet=" + produtoPedidoSet +
                 ", pagamento=" + pagamento +
                 '}';
     }

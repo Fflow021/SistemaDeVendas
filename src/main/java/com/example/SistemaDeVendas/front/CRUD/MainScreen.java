@@ -3,6 +3,7 @@ package com.example.SistemaDeVendas.front.CRUD;
 
 import com.example.SistemaDeVendas.entidades.Produto;
 import com.example.SistemaDeVendas.front.CRUD.CREATE.App;
+import com.example.SistemaDeVendas.front.CRUD.READ.ReadScreen;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -25,18 +26,30 @@ public class MainScreen {
     private JLabel instagramLabel;
     private JLabel segueLaLabel;
     private App app;
+    private ReadScreen readScreen;
 
     public JPanel getMainScreen() {
         return mainScreen;
     }
 
-    public MainScreen(App app) {
+    public MainScreen(App app, ReadScreen readScreen) {
         this.app = app;
+        this.readScreen = readScreen;
         fazerUmPedidoButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 JFrame frame = new JFrame("App");
                 frame.setContentPane(app.getMainScreen());
+                frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                frame.setSize(1500, 400);
+                frame.setVisible(true);
+            }
+        });
+        verUmPedidoButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame frame = new JFrame("Tela de Pedidos");
+                frame.setContentPane(readScreen.getReadScreen());
                 frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                 frame.setSize(1500, 400);
                 frame.setVisible(true);

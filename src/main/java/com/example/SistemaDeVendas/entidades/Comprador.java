@@ -18,7 +18,7 @@ public class Comprador implements Serializable {
     private String nome;
     private String email;
 
-    @OneToMany(mappedBy = "comprador")
+    @OneToMany(mappedBy = "comprador", fetch = FetchType.EAGER)
     private List<Pedido> pedidoList = new ArrayList<>();
 
     public Comprador(Integer idComprador, int celular, String nome, String email) {
@@ -66,12 +66,6 @@ public class Comprador implements Serializable {
 
     @Override
     public String toString() {
-        return "Comprador{" +
-                "idComprador=" + idComprador +
-                ", celular=" + celular +
-                ", nome='" + nome + '\'' +
-                ", email='" + email + '\'' +
-                ", pedidoList=" + pedidoList +
-                '}';
+        return nome;
     }
 }

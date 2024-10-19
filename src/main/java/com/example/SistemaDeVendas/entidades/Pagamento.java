@@ -50,13 +50,8 @@ public class Pagamento implements Serializable {
         this.horaPagamento = horaPagamento;
     }
 
-
-
     @Override
     public String toString() {
-        return "Pagamento{" +
-                "idPagamento=" + idPagamento +
-                ", tipo='" + tipo + '\'' +
-                ", horaPagamento='" + horaPagamento + "'}";
+        return tipo;
     }
 }
