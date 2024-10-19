@@ -1,7 +1,9 @@
 package com.example.SistemaDeVendas.entidades;
 
 
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -9,6 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 @NoArgsConstructor
 @Entity
+@Getter
+@Setter
 public class Comprador implements Serializable {
 
     @Id
@@ -26,42 +30,6 @@ public class Comprador implements Serializable {
         this.celular = celular;
         this.nome = nome;
         this.email = email;
-    }
-
-    public int getIdComprador() {
-        return idComprador;
-    }
-
-    public void setIdComprador(Integer idComprador) {
-        this.idComprador = idComprador;
-    }
-
-    public int getCelular() {
-        return celular;
-    }
-
-    public void setCelular(int celular) {
-        this.celular = celular;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public List<Pedido> getPedidoList() {
-        return pedidoList;
     }
 
     @Override
