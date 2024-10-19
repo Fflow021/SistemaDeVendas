@@ -35,9 +35,6 @@ public class App {
     private Pedido pedido;
 
     public App() {
-
-//        //produto mocado
-//        Produto produtoBiscoito = new Produto(1, 20, "Biscoito Decorado", "Baunilha", 20.0F);
         carrinhoDeComprasButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -58,21 +55,28 @@ public class App {
 
                 // Cria-se o pedido no momento que o cliente clica no botão de adicionar ao carrinho.
                 pedido = new Pedido(null,null,null);
-                daoDePedido.persisteNoDB(pedido);
+
 
                 // Produto 1 é buscado do banco de dados e instanciado no programa
                 Produto produto = (Produto) daoProduto.selectNaDBbyID(1);
                 ProdutoPedido produtoPedido = new ProdutoPedido(pedido, produto, Integer.parseInt(quantidadeAField.getText()));
-                daoProduto.persisteNoDB(produtoPedido);
 
                 // Produto 2 é buscado do banco de dados e instanciado no programa
                 Produto produto2 = (Produto) daoProduto.selectNaDBbyID(2);
                 ProdutoPedido produtoPedido2 = new ProdutoPedido(pedido, produto2, Integer.parseInt(quantidadeBField.getText()));
-                daoProduto.persisteNoDB(produtoPedido2);
+
 
                 // Produto 3 é buscado do banco de dados e instanciado no programa
                 Produto produto3 = (Produto) daoProduto.selectNaDBbyID(3);
                 ProdutoPedido produtoPedido3 = new ProdutoPedido(pedido, produto3, Integer.parseInt(quantidadeCField.getText()));
+
+
+                pedido.adicionarProduto(produtoPedido);
+                pedido.adicionarProduto(produtoPedido2);
+                pedido.adicionarProduto(produtoPedido3);
+                daoDePedido.persisteNoDB(pedido);
+                daoProduto.persisteNoDB(produtoPedido);
+                daoProduto.persisteNoDB(produtoPedido2);
                 daoProduto.persisteNoDB(produtoPedido3);
             }
         });

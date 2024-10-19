@@ -5,6 +5,7 @@ import com.example.SistemaDeVendas.DTO.ProdutoPedidoDTO;
 import com.example.SistemaDeVendas.entidades.Comprador;
 import com.example.SistemaDeVendas.entidades.Pagamento;
 import com.example.SistemaDeVendas.entidades.Pedido;
+import com.example.SistemaDeVendas.entidades.Produto;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -28,6 +29,10 @@ public class Carrinho {
     }
 
     public Carrinho() {
+        //
+        DAO daoPedido = new DAO<>(Pedido.class);
+        Pedido pedidoPraDarGetTotal = (Pedido) daoPedido.createCustomQUERY("SELECT p FROM Pedido p ORDER BY p.idPedido DESC");
+        totalPedido.setText(String.valueOf(pedidoPraDarGetTotal.getTotalPedido()));
         // DROPDOWN PARA ESCOLHER O MEIO DE PAGAMENTO
         pagamentoEscolha.addActionListener(new ActionListener() {
             @Override
@@ -59,7 +64,6 @@ public class Carrinho {
                             ,pedido);
 
                 pedido.setPagamento(pagamento);
-                //
                 daoDePedido.update(pedido);
             }
         });
@@ -67,15 +71,16 @@ public class Carrinho {
     }
 
     private void createUIComponents() {
+        // Instanciação dos widgets usado na Jframe de carrinho
         nomeField = new JTextField();
         celularField = new JTextField();
         emailField = new JTextField();
         enderecoField = new JTextField();
         finalizarPedidoButton = new JButton();
+        totalPedido = new JLabel();
 
         String[] pagamentosTipos = {"Boleto","Cartão de Crédito", "PIX"};
         pagamentoEscolha = new JComboBox<>(pagamentosTipos);
 
     }
-
 }

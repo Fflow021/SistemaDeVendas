@@ -20,10 +20,6 @@ public class SistemaDeVendasApplication {
 		frame.setVisible(true);
 
 
-		// testezin de produtoPedido com pedido null
-//		Produto produtoBiscoito = new Produto(null, 20, "Biscoito Decorado", "Baunilha", 20.00F);
-//		ProdutoPedido produtoPedido = new ProdutoPedido(null, produtoBiscoito, 40);
-
 //		adiciona um produtoPedido dentro do set de ProdutoPedido
 //		pedido.getProdutoPedidoSet().add(produtoPedido);
 //

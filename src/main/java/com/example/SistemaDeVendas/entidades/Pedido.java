@@ -29,13 +29,13 @@ public class Pedido implements Serializable {
     private Set<ProdutoPedido> produtoPedidoSet = new HashSet<>();
     @OneToOne(cascade = CascadeType.ALL)
     private Pagamento pagamento;
+    private float totalPedido;
 
     public Pedido(Integer idPedido, String localDeEntrega, Comprador comprador) {
         this.idPedido = idPedido;
         this.localDeEntrega = localDeEntrega;
         this.horaPedido = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss"));
         this.comprador = comprador;
-
     }
 
     public int getIdPedido() {
@@ -52,6 +52,10 @@ public class Pedido implements Serializable {
 
     public void setLocalDeEntrega(String localDeEntrega) {
         this.localDeEntrega = localDeEntrega;
+    }
+
+    public float getTotalPedido() {
+        return totalPedido;
     }
 
     public String getHoraPedido() {
@@ -83,8 +87,17 @@ public class Pedido implements Serializable {
         return produtoPedidoSet;
     }
 
-    public void setProdutoPedidoSet(Set<ProdutoPedido> produtoPedidoSet) {
-        this.produtoPedidoSet = produtoPedidoSet;
+    // método pra adicionar um produto, pra não ter que dar setTotal.add(getTotal())
+    public void adicionarProduto(ProdutoPedido produtoPedido) {
+        produtoPedidoSet.add(produtoPedido);
+        atualizarTotal();
+    }
+    // Atualizando o total internamente para não deixar um setTotal PUBLICO
+    private void atualizarTotal() {
+        totalPedido = 0F;
+        for (ProdutoPedido item : produtoPedidoSet) {
+            totalPedido += item.getSubtotal();
+        }
     }
 
     //por alguma razão ele não ta retornando o total
@@ -95,6 +108,7 @@ public class Pedido implements Serializable {
         }
         return total;
     }
+
 
     @Override
     public String toString() {
