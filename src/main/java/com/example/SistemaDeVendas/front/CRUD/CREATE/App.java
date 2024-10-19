@@ -38,7 +38,7 @@ public class App {
         carrinhoDeComprasButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JFrame frame = new JFrame("carrinhoTela");
+                JFrame frame = new JFrame("Carrinho");
                 Carrinho carrinho = new Carrinho();
                 frame.setContentPane(carrinho.getCarrinhoTela());
                 frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
