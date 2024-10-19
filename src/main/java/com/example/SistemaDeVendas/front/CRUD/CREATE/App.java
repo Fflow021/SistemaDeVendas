@@ -1,7 +1,7 @@
 package com.example.SistemaDeVendas.front.CRUD.CREATE;
 
 import com.example.SistemaDeVendas.DAO.DAO;
-import com.example.SistemaDeVendas.DTO.ProdutoPedidoDTO;
+import com.example.SistemaDeVendas.entidades.Pedido;
 import com.example.SistemaDeVendas.entidades.Produto;
 import com.example.SistemaDeVendas.entidades.ProdutoPedido;
 
@@ -9,14 +9,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.HashSet;
-import java.util.Set;
 
 public class App {
     private JPanel MainScreen;
     private JButton adicionarAoCarrinhoButton;
-    private JButton adicionarAoCarrinhoBButton;
-    private JButton adicionarAoCarrinhoCButton;
     private JLabel fotoProdutoA;
     private JLabel fotoProdutoB;
     private JLabel fotoProdutoC;
@@ -34,8 +30,9 @@ public class App {
     private JLabel precoCGet;
     private JLabel saborCGet;
     private JTextField quantidadeAField;
-    private JTextField textField2;
-    private JTextField textField3;
+    private JTextField quantidadeBField;
+    private JTextField quantidadeCField;
+    private Pedido pedido;
 
     public App() {
 
@@ -55,11 +52,28 @@ public class App {
         adicionarAoCarrinhoButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                DAO daoBiscoito = new DAO<>(Produto.class);
-                Produto produto = (Produto) daoBiscoito.selectNaDBbyID(1);
-                ProdutoPedido produtoPedido = new ProdutoPedido(null, produto, Integer.parseInt(quantidadeAField.getText()));
-                ProdutoPedidoDTO pdDTO = new ProdutoPedidoDTO(produtoPedido);
+                // Instanciamos os DAOs que vão ser utilizados, de produto e de pedido
+                DAO daoProduto = new DAO<>(Produto.class);
+                DAO daoDePedido = new DAO<>(Pedido.class);
 
+                // Cria-se o pedido no momento que o cliente clica no botão de adicionar ao carrinho.
+                pedido = new Pedido(null,null,null);
+                daoDePedido.persisteNoDB(pedido);
+
+                // Produto 1 é buscado do banco de dados e instanciado no programa
+                Produto produto = (Produto) daoProduto.selectNaDBbyID(1);
+                ProdutoPedido produtoPedido = new ProdutoPedido(pedido, produto, Integer.parseInt(quantidadeAField.getText()));
+                daoProduto.persisteNoDB(produtoPedido);
+
+                // Produto 2 é buscado do banco de dados e instanciado no programa
+                Produto produto2 = (Produto) daoProduto.selectNaDBbyID(2);
+                ProdutoPedido produtoPedido2 = new ProdutoPedido(pedido, produto2, Integer.parseInt(quantidadeBField.getText()));
+                daoProduto.persisteNoDB(produtoPedido2);
+
+                // Produto 3 é buscado do banco de dados e instanciado no programa
+                Produto produto3 = (Produto) daoProduto.selectNaDBbyID(3);
+                ProdutoPedido produtoPedido3 = new ProdutoPedido(pedido, produto3, Integer.parseInt(quantidadeCField.getText()));
+                daoProduto.persisteNoDB(produtoPedido3);
             }
         });
     }
@@ -88,6 +102,7 @@ public class App {
         ImageIcon iconB = new ImageIcon("assets/PipocaGourmet.png");
         fotoProdutoB.setIcon(trataImagem(iconB));
 
+        quantidadeBField = new JTextField();
         precoBGet = new JLabel();
         saborBGet = new JLabel();
 
@@ -99,6 +114,7 @@ public class App {
         ImageIcon iconC = new ImageIcon("assets/Brownie.png");
         fotoProdutoC.setIcon(trataImagem(iconC));
 
+        quantidadeCField = new JTextField();
         precoCGet = new JLabel();
         saborCGet = new JLabel();
 

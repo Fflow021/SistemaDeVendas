@@ -32,8 +32,22 @@ public class DAO<T extends Serializable> {
     public T selectNaDBbyID(Integer id) {
         EntityManager em = emf.createEntityManager();
         T result = em.find(entidade, id);
-        System.out.println("\nSELECT NA DATABASE PELO ID: " + id + "\n");
         em.close();
         return result;
+    }
+
+    public void update(T object) {
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+        em.merge(object);
+        em.getTransaction().commit();
+        em.close();
+    }
+
+    public T createCustomQUERY(String jpqlQUERY){
+        EntityManager em = emf.createEntityManager();
+        T resultado = em.createQuery(jpqlQUERY, entidade).setMaxResults(1).getSingleResult();
+        em.close();
+        return resultado;
     }
 }

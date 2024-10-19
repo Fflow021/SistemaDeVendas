@@ -32,12 +32,6 @@ public class Carrinho {
         pagamentoEscolha.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-//                //Pedido pedido = new Pedido();
-//                if(e.getSource()==pagamentoEscolha) {
-//                    pagamento = new Pagamento(null,
-//                            String.valueOf(pagamentoEscolha.getSelectedItem())
-//                            ,pedido);
-//                }
             }
         });
         // BOTÃO PARA FINALIZAR PEDIDO
@@ -53,10 +47,11 @@ public class Carrinho {
                 DAO daoDeComprador = new DAO<>(Comprador.class);
                 daoDeComprador.persisteNoDB(comprador);
 
-                // Lógica de criar um pedido e persistir no db
-                pedido = new Pedido(null,
-                        enderecoField.getText(),
-                        comprador);
+                // recebe o pedido criado na tela anterior e da set de informações que faltavam
+                DAO daoDePedido = new DAO<>(Pedido.class); // DAO de pedido pra manipular banco
+                pedido = (Pedido) daoDePedido.createCustomQUERY("SELECT p FROM Pedido p ORDER BY p.id DESC");
+                pedido.setLocalDeEntrega(enderecoField.getText());
+                pedido.setComprador(comprador);
 
                 // Lógica de criar um pagamento e persistir no db
                 pagamento = new Pagamento(null,
@@ -64,16 +59,14 @@ public class Carrinho {
                             ,pedido);
 
                 pedido.setPagamento(pagamento);
-
-                DAO daoDePedido = new DAO<>(Pedido.class);
-                daoDePedido.persisteNoDB(pedido);
+                //
+                daoDePedido.update(pedido);
             }
         });
 
     }
 
     private void createUIComponents() {
-        //TODO
         nomeField = new JTextField();
         celularField = new JTextField();
         emailField = new JTextField();

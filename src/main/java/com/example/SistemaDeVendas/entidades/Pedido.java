@@ -83,6 +83,9 @@ public class Pedido implements Serializable {
         return produtoPedidoSet;
     }
 
+    public void setProdutoPedidoSet(Set<ProdutoPedido> produtoPedidoSet) {
+        this.produtoPedidoSet = produtoPedidoSet;
+    }
 
     //por alguma razão ele não ta retornando o total
     public float getTotal(){
