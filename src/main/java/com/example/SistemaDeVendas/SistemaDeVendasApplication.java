@@ -1,7 +1,5 @@
 package com.example.SistemaDeVendas;
 
-import com.example.SistemaDeVendas.entidades.Produto;
-import com.example.SistemaDeVendas.entidades.ProdutoPedido;
 import com.example.SistemaDeVendas.front.CRUD.CREATE.App;
 import com.example.SistemaDeVendas.front.CRUD.MainScreen;
 import com.example.SistemaDeVendas.front.CRUD.READ.ReadScreen;
@@ -14,6 +12,7 @@ public class SistemaDeVendasApplication {
 		// Configuracoes do Swing
 		JFrame frame = new JFrame("MainScreen");
 
+		// Instanciação de cada uma das tela que o mainScreen pode abrir
 		App app = new App();
 		ReadScreen readScreen = new ReadScreen();
 

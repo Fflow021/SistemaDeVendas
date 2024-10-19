@@ -2,7 +2,9 @@ package com.example.SistemaDeVendas.entidades;
 
 import com.example.SistemaDeVendas.entidades.PK.ProdutoPedidoPK;
 
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
@@ -10,6 +12,8 @@ import java.io.Serializable;
 
 @NoArgsConstructor
 @Entity
+@Setter
+@Getter
 public class ProdutoPedido implements Serializable {
 
     @EmbeddedId
@@ -23,16 +27,10 @@ public class ProdutoPedido implements Serializable {
         this.quantidade=quantidade;
         this.preco=produto.getPreco();
     }
-    public int getQuantidade() {
-        return quantidade;
-    }
 
-    public void setQuantidade(int quantidade) {
-        this.quantidade = quantidade;
-    }
-
-    public float getPreco() {
-        return preco;
+    // Regra de negócio para pegar subTotal de subPedidos
+    public float getSubtotal(){
+        return preco * quantidade;
     }
 
     public Pedido getPedido() {
@@ -45,10 +43,6 @@ public class ProdutoPedido implements Serializable {
 
     public void setProduto(Produto produto) {
         id.setProduto(produto);
-    }
-
-    public float getSubtotal(){
-        return preco * quantidade;
     }
 
     @Override

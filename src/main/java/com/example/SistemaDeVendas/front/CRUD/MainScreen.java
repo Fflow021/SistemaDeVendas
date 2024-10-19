@@ -19,8 +19,8 @@ public class MainScreen {
     private JPanel mainScreen;
     private JButton fazerUmPedidoButton;
     private JButton verUmPedidoButton;
-    private JButton trocarPagamentoDeUmButton;
-    private JButton cancelarUmPedidoButton;
+    private JButton trocarPagamentoButton;
+    private JButton cancelarPedidoButton;
     private JLabel labelLogoWolffsOficial;
     private JLabel primeiroTexto;
     private JLabel instagramLabel;

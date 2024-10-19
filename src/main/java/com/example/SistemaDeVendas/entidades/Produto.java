@@ -1,6 +1,8 @@
 package com.example.SistemaDeVendas.entidades;
 
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -9,6 +11,8 @@ import java.util.Set;
 
 @NoArgsConstructor
 @Entity
+@Getter
+@Setter
 public class Produto implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,39 +36,6 @@ public class Produto implements Serializable {
         this.sabor = produto.sabor;
         this.preco = produto.getPreco();
     }
-
-    public Integer getIdProduto() {
-        return idProduto;
-    }
-
-    public void setIdProduto(Integer idProduto) {
-        this.idProduto = idProduto;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getSabor() {
-        return sabor;
-    }
-
-    public void setSabor(String sabor) {
-        this.sabor = sabor;
-    }
-
-    public float getPreco() {
-        return preco;
-    }
-
-    public void setPreco(float preco) {
-        this.preco = preco;
-    }
-
 
     public Set<Pedido> getPedidos() {
         Set<Pedido> set = new HashSet<>();

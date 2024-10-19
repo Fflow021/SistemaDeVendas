@@ -2,7 +2,9 @@ package com.example.SistemaDeVendas.entidades;
 
 
 
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -13,6 +15,8 @@ import java.util.Set;
 
 @NoArgsConstructor
 @Entity
+@Getter
+@Setter
 public class Pedido implements Serializable {
 
     // ATRIBUTOS DE PEDIDO
@@ -38,55 +42,6 @@ public class Pedido implements Serializable {
         this.comprador = comprador;
     }
 
-    public int getIdPedido() {
-        return idPedido;
-    }
-
-    public void setIdPedido(Integer idPedido) {
-        this.idPedido = idPedido;
-    }
-
-    public String getLocalDeEntrega() {
-        return localDeEntrega;
-    }
-
-    public void setLocalDeEntrega(String localDeEntrega) {
-        this.localDeEntrega = localDeEntrega;
-    }
-
-    public float getTotalPedido() {
-        return totalPedido;
-    }
-
-    public String getHoraPedido() {
-        return horaPedido;
-    }
-
-    public void setHoraPedido(String horaPedido) {
-        this.horaPedido = horaPedido;
-    }
-
-    //GET E SET RELACIONAMENTO
-    public Comprador getComprador() {
-        return comprador;
-    }
-
-    public void setComprador(Comprador comprador) {
-        this.comprador = comprador;
-    }
-
-    public Pagamento getPagamento() {
-        return pagamento;
-    }
-
-    public void setPagamento(Pagamento pagamento) {
-        this.pagamento = pagamento;
-    }
-
-    public Set<ProdutoPedido> getProdutoPedidoSet() {
-        return produtoPedidoSet;
-    }
-
     // método pra adicionar um produto, pra não ter que dar setTotal.add(getTotal())
     public void adicionarProduto(ProdutoPedido produtoPedido) {
         produtoPedidoSet.add(produtoPedido);
@@ -99,6 +54,8 @@ public class Pedido implements Serializable {
             totalPedido += item.getSubtotal();
         }
     }
+
+
 
     //por alguma razão ele não ta retornando o total
     public float getTotal(){

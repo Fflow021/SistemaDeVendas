@@ -1,7 +1,9 @@
 package com.example.SistemaDeVendas.entidades;
 
 
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -10,6 +12,8 @@ import java.time.format.DateTimeFormatter;
 
 @NoArgsConstructor
 @Entity
+@Getter
+@Setter
 public class Pagamento implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,30 +28,6 @@ public class Pagamento implements Serializable {
         this.tipo = tipo;
         this.horaPagamento = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss"));
         this.pedido = pedido;
-    }
-
-    public int getIdPagamento() {
-        return idPagamento;
-    }
-
-    public void setIdPagamento(Integer idPagamento) {
-        this.idPagamento = idPagamento;
-    }
-
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
-
-    public String getHoraPagamento() {
-        return horaPagamento;
-    }
-
-    public void setHoraPagamento(String horaPagamento) {
-        this.horaPagamento = horaPagamento;
     }
 
     @Override

@@ -6,9 +6,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import java.io.Serializable;
-import java.lang.reflect.Field;
-import java.sql.ResultSet;
-import java.util.ArrayList;
 import java.util.List;
 
 public class DAO<T extends Serializable> {

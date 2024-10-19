@@ -2,11 +2,13 @@
 Projeto de faculdade de um sistema de vendas com interface em Java Azul zulu 17.
     
 Através da Interface é possível fazer operações CRUD para 
-um <span style="color:#157cee">"Pedido"</span>.<br></br>
-<span style="color:#fe315d">C</span>REATE → Representando como um cliente através de um aplicativo tivesse escolhido 
-seus itens para comprar e então, posto eles no carrinho e então finalizasse o pedido.
+um "Pedido".<br></br>
+CREATE → Na aba de **Fazer um Pedido** um cliente pode criar um pedido na tela de 
+produtos seus itens serão em carrinho e então numa tela de pedido 
+o cliente pode finalizar seu pedido.
 
-[//]: # (<br><span style="color:#fe315d">R</span>)
+READ → Na aba de **Consultar Pedidos**, um cliente pode ver todos os pedidos presentes
+e buscar um pedido através de um ID, do pedido.
 
 [//]: # (<br><span style="color:#fe315d">U</span>)
 
@@ -22,7 +24,7 @@ seus itens para comprar e então, posto eles no carrinho e então finalizasse o 
 
 # Requisitos
 - MySQL 8.
-- Intellij Idea.
+- Intellij Idea PRO ou Community Edition.
 - JDK Java 17 EE ou superior.
 
 # Setup
@@ -95,18 +97,25 @@ A fim de gerenciar as vendas da loja virtual Biscoitos e Pipocas Wolff's os segu
 ° Doces são cadastrados por Tipo, Características e Preço.<br>
 
 # Interface
-Tela inicial.
+### Tela inicial
 ![MainScreen](https://github.com/Fflow021/SistemaDeVendas/blob/b76fd6064e57353fd152047b440e746d07808949/assets/assetsFotosDaTela/MainScreen.png)
-Tela de compras.
+### Tela de compras
 ![AppScreen](https://github.com/Fflow021/SistemaDeVendas/blob/b76fd6064e57353fd152047b440e746d07808949/assets/assetsFotosDaTela/AppScreen.png)
-Tela para finalizar o pedido.
+### Tela para finalizar o pedido
 ![TelaDeCarrinho](https://github.com/Fflow021/SistemaDeVendas/blob/b76fd6064e57353fd152047b440e746d07808949/assets/assetsFotosDaTela/TelaDoCarrinho.png)
 
+[//]: # (Tela de Consulta de Pedidos)
+
+[//]: # (![TelaDeConsulta]&#40;&#41;)
 # Troubleshooting
 
 Caso o programa não esteja funcionando por conta do lombok, certifique-se de 
 recarregar as dependências do Maven e no canto inferior direito habilitar as 
 configurações do lombok na caixa de pop-up dele.
+
+# Observações
+Esse código não tem UM ÚNICO tratamento de exceções, então qualquer coisa 
+fora do esperado o código VAI explodir.
 
 # Integrantes
 Augusto Poubell Ribeiro Pinheiro de Souza - 202103132881<br>
