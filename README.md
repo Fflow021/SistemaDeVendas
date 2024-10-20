@@ -90,7 +90,7 @@ Após isso estamos prontos para a segunda e última execução de Setup, portant
 executar o programa e utilizá-lo.
 
 # Diagrama de Classes
-![DomainModel](https://raw.githubusercontent.com/Fflow021/SistemaDeVendas/main/assets/Diagrama_Classes-1.png)
+![DomainModel](https://github.com/Fflow021/SistemaDeVendas/blob/e0ddd84520c4a6c258a9c4ea651dc904ca27e516/assets/Diagrama_Classes.png)
 
 # Análise de Mini-mundo
 A fim de gerenciar as vendas da loja virtual Biscoitos e Pipocas Wolff's os seguintes requisitos devem ser atendidos pela modelagem de dados em Java orientada a objetos:<br>
