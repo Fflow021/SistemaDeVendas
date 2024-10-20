@@ -107,11 +107,15 @@ A fim de gerenciar as vendas da loja virtual Biscoitos e Pipocas Wolff's os segu
 ![TelaDeCarrinho](https://github.com/Fflow021/SistemaDeVendas/blob/b76fd6064e57353fd152047b440e746d07808949/assets/assetsFotosDaTela/TelaDoCarrinho.png)
 # Tela de Consulta, Deleção e Alteração de Pedidos
 ![TelaDeConsulta](https://github.com/Fflow021/SistemaDeVendas/blob/3520ce92c6d04f82d590a8d86c7a2cd81cc55220/assets/assetsFotosDaTela/RUDScreen.png)
-# Troubleshooting
 
+# Troubleshooting
 Caso o programa não esteja funcionando por conta do lombok, certifique-se de 
 recarregar as dependências do Maven e no canto inferior direito habilitar as 
 configurações do lombok na caixa de pop-up dele.
+
+Caso as imagens não carreguem você precisa trocar manualmente o _**path**_ do
+código que carrega as imagens em **MainScreen** e **App** pelo _**absolute path**_
+das imagens na pasta assets na raiz do projeto.
 
 # Observações
 Esse código não tem UM ÚNICO tratamento de exceções, então qualquer coisa 
