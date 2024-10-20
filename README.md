@@ -7,12 +7,14 @@ CREATE → Na aba de **Fazer um Pedido** um cliente pode criar um pedido na tela
 produtos seus itens serão em carrinho e então numa tela de pedido 
 o cliente pode finalizar seu pedido.
 
-READ → Na aba de **Consultar Pedidos**, um cliente pode ver todos os pedidos presentes
+READ → Na aba de **Consultar ou alterar Pedidos**, um cliente pode ver todos os pedidos presentes
 e buscar um pedido através de um ID, do pedido.
 
-[//]: # (<br><span style="color:#fe315d">U</span>)
+UPDATE → Na aba de **Consultar ou alterar Pedidos**, um cliente pode escolher um ID e trocar o 
+meio de pagamento de um Pedido.
 
-[//]: # (<br><span style="color:#fe315d">D</span>)
+DELETE → Na aba de **Consultar ou alterar Pedidos**, um cliente pode escolher cancelar um pedido, 
+passando o ID do Pedido.
 
 # Tecnologias
 - Java 17.
@@ -98,15 +100,13 @@ A fim de gerenciar as vendas da loja virtual Biscoitos e Pipocas Wolff's os segu
 
 # Interface
 ### Tela inicial
-![MainScreen](https://github.com/Fflow021/SistemaDeVendas/blob/b76fd6064e57353fd152047b440e746d07808949/assets/assetsFotosDaTela/MainScreen.png)
+![MainScreen]()
 ### Tela de compras
 ![AppScreen](https://github.com/Fflow021/SistemaDeVendas/blob/b76fd6064e57353fd152047b440e746d07808949/assets/assetsFotosDaTela/AppScreen.png)
 ### Tela para finalizar o pedido
 ![TelaDeCarrinho](https://github.com/Fflow021/SistemaDeVendas/blob/b76fd6064e57353fd152047b440e746d07808949/assets/assetsFotosDaTela/TelaDoCarrinho.png)
-
-[//]: # (Tela de Consulta de Pedidos)
-
-[//]: # (![TelaDeConsulta]&#40;&#41;)
+# Tela de Consulta, Deleção e Alteração de Pedidos
+![TelaDeConsulta]
 # Troubleshooting
 
 Caso o programa não esteja funcionando por conta do lombok, certifique-se de 
