@@ -3,7 +3,8 @@ package com.example.SistemaDeVendas.front.CRUD;
 
 import com.example.SistemaDeVendas.entidades.Produto;
 import com.example.SistemaDeVendas.front.CRUD.CREATE.App;
-import com.example.SistemaDeVendas.front.CRUD.READ.ReadScreen;
+import com.example.SistemaDeVendas.front.CRUD.RUD.RUDScreen;
+
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -26,13 +27,13 @@ public class MainScreen {
     private JLabel instagramLabel;
     private JLabel segueLaLabel;
     private App app;
-    private ReadScreen readScreen;
+    private RUDScreen readScreen;
 
     public JPanel getMainScreen() {
         return mainScreen;
     }
 
-    public MainScreen(App app, ReadScreen readScreen) {
+    public MainScreen(App app, RUDScreen readScreen) {
         this.app = app;
         this.readScreen = readScreen;
         fazerUmPedidoButton.addActionListener(new ActionListener() {

@@ -1,6 +1,7 @@
-package com.example.SistemaDeVendas.front.CRUD.READ;
+package com.example.SistemaDeVendas.front.CRUD.RUD;
 
 import com.example.SistemaDeVendas.DAO.DAO;
+import com.example.SistemaDeVendas.entidades.Pagamento;
 import com.example.SistemaDeVendas.entidades.Pedido;
 
 import javax.swing.*;
@@ -9,13 +10,16 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 
-public class ReadScreen {
+public class RUDScreen {
     private JTable tablePedidos;
     private JPanel readScreen;
     private JTextField idField;
     private JButton buscarButton;
     private JScrollPane scrollPane;
     private JButton atualizarButton;
+    private JButton deletarPedidoButton;
+    private JButton atualizarPagamentoButton;
+    private JComboBox pagamentoEscolha;
     private String[] colunas = {
         "ID do Pedido", "Hora do Pedido", "Local de Entrega",
                 "Total do Pedido", "Comprador", "Tipo de Pagamento"
@@ -25,7 +29,7 @@ public class ReadScreen {
         return readScreen;
     }
 
-    public ReadScreen() {
+    public RUDScreen() {
 
         // botão de buscar por ID
         buscarButton.addActionListener(new ActionListener() {
@@ -41,11 +45,35 @@ public class ReadScreen {
                 atualizarTabela();
             }
         });
+        // botão para deletar o pedido
+        deletarPedidoButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                DAO DAOpedido = new DAO<>(Pedido.class);
+                DAOpedido.deleteObjectById(Integer.parseInt(idField.getText()));
+            }
+        });
+        // botão mudar um tipo de pagamento de um pedido
+        atualizarPagamentoButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                DAO DAOPedido = new DAO<>(Pedido.class);
+                Pedido pedido = (Pedido) DAOPedido.selectNaDBbyID(Integer.parseInt(idField.getText()));
+                Pagamento pagamento = new Pagamento(
+                        null,
+                        String.valueOf(pagamentoEscolha.getSelectedItem()),
+                        pedido);
+                pedido.setPagamento(pagamento);
+                DAOPedido.update(pedido);
+            }
+        });
     }
 
     private void createUIComponents() {
         // Inicialização de widgets
         idField = new JTextField();
+        String[] pagamentosTipos = {"Boleto","Cartão de Crédito", "PIX"};
+        pagamentoEscolha = new JComboBox<>(pagamentosTipos);
 
         DAO daoPedido = new DAO<>(Pedido.class);
         List<Pedido> pedidoList = daoPedido.getAllObjects();

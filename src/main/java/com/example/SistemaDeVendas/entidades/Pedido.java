@@ -29,7 +29,7 @@ public class Pedido implements Serializable {
     @ManyToOne
     @JoinColumn
     private Comprador comprador;
-    @OneToMany(mappedBy = "id.pedido", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "id.pedido", fetch = FetchType.EAGER, orphanRemoval = true)
     private Set<ProdutoPedido> produtoPedidoSet = new HashSet<>();
     @OneToOne(cascade = CascadeType.ALL)
     private Pagamento pagamento;

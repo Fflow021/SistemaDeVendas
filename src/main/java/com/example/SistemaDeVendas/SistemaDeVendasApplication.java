@@ -2,7 +2,8 @@ package com.example.SistemaDeVendas;
 
 import com.example.SistemaDeVendas.front.CRUD.CREATE.App;
 import com.example.SistemaDeVendas.front.CRUD.MainScreen;
-import com.example.SistemaDeVendas.front.CRUD.READ.ReadScreen;
+import com.example.SistemaDeVendas.front.CRUD.RUD.RUDScreen;
+
 
 import javax.swing.*;
 
@@ -14,9 +15,9 @@ public class SistemaDeVendasApplication {
 
 		// Instanciação de cada uma das tela que o mainScreen pode abrir
 		App app = new App();
-		ReadScreen readScreen = new ReadScreen();
+		RUDScreen rudScreen = new RUDScreen();
 
-		MainScreen mainScreen = new MainScreen(app, readScreen);
+		MainScreen mainScreen = new MainScreen(app, rudScreen);
 
 		frame.setContentPane(mainScreen.getMainScreen());
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

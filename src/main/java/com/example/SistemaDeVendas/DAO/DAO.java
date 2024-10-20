@@ -47,13 +47,6 @@ public class DAO<T extends Serializable> {
         em.close();
     }
 
-    public T createCustomQUERY(String jpqlQUERY){
-        EntityManager em = emf.createEntityManager();
-        T resultado = em.createQuery(jpqlQUERY, entidade).setMaxResults(1).getSingleResult();
-        em.close();
-        return resultado;
-    }
-
     public List<T> getAllObjects() {
         EntityManager em = emf.createEntityManager();
         List<T> objectList = null;
@@ -65,4 +58,19 @@ public class DAO<T extends Serializable> {
         return objectList;
     }
 
+    public void deleteObjectById(Integer id) {
+        EntityManager em = emf.createEntityManager();
+        T result = em.find(entidade, id);
+        em.getTransaction().begin();
+        em.remove(result);
+        em.getTransaction().commit();
+        em.close();
+    }
+
+    public T createCustomQUERY(String jpqlQUERY){
+        EntityManager em = emf.createEntityManager();
+        T resultado = em.createQuery(jpqlQUERY, entidade).setMaxResults(1).getSingleResult();
+        em.close();
+        return resultado;
+    }
 }
