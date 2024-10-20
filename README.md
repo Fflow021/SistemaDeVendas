@@ -1,5 +1,5 @@
 # SistemaDeVendas
-Projeto de faculdade de um sistema de vendas com interface em Java Azul zulu 17.
+Projeto de faculdade de um sistema de vendas com interface SWING e backend em Java 17.
     
 Através da Interface é possível fazer operações CRUD para 
 um "Pedido".<br></br>
@@ -100,13 +100,13 @@ A fim de gerenciar as vendas da loja virtual Biscoitos e Pipocas Wolff's os segu
 
 # Interface
 ### Tela inicial
-![MainScreen]()
+![MainScreen](https://github.com/Fflow021/SistemaDeVendas/blob/3520ce92c6d04f82d590a8d86c7a2cd81cc55220/assets/assetsFotosDaTela/MainScreen.png)
 ### Tela de compras
 ![AppScreen](https://github.com/Fflow021/SistemaDeVendas/blob/b76fd6064e57353fd152047b440e746d07808949/assets/assetsFotosDaTela/AppScreen.png)
 ### Tela para finalizar o pedido
 ![TelaDeCarrinho](https://github.com/Fflow021/SistemaDeVendas/blob/b76fd6064e57353fd152047b440e746d07808949/assets/assetsFotosDaTela/TelaDoCarrinho.png)
 # Tela de Consulta, Deleção e Alteração de Pedidos
-![TelaDeConsulta]
+![TelaDeConsulta](https://github.com/Fflow021/SistemaDeVendas/blob/3520ce92c6d04f82d590a8d86c7a2cd81cc55220/assets/assetsFotosDaTela/RUDScreen.png)
 # Troubleshooting
 
 Caso o programa não esteja funcionando por conta do lombok, certifique-se de 
